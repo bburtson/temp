@@ -1,10 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace USTVA.Entities
 {
@@ -24,9 +19,9 @@ namespace USTVA.Entities
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }
 
+        // this was used for a command-line utility I was working on when scaffolding the incidents database
         public override string ToString()
         {
-
             StringBuilder str = new StringBuilder();
             str.Append("________Incident________\n");
             str.Append($"ID:  {IncidentId} \n");
@@ -36,7 +31,6 @@ namespace USTVA.Entities
             str.Append($"Alcohol:  {Alcohol}  \n");
             str.Append($"******Description******   \n");
             str.Append($"{Description}  \n");
-
             return str.ToString();
         }
     }

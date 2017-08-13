@@ -18,6 +18,5 @@
         public ArrestType ArrestType { get; set; }
         public string Charge { get; set; }
         public string Article { get; set; }
-       // public int IncidentId { get; set; }
     }
 }

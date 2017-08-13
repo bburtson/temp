@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace USTVA.Tools.Extenstions.String
 {
     public static class StringExtensions
     {
-
         /// <summary>
         /// Removes a string from specified collections of omissions
         /// if none are found in the sequence, the original string is returned

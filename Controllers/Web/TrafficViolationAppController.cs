@@ -21,7 +21,5 @@ namespace USTVA.Controllers.Web
         {
             return View();
         }
-
-
     }
 }

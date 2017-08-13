@@ -10,11 +10,10 @@ namespace USTVA.Entities
         public string City { get; set; }
         public string State { get; set; }
         public string CommercialLicense { get; set; }
-        //public int IncidentId { get; set; }
 
+        // this was used for a command-line utility I was working on when scaffolding the incidents database
         public override string ToString()
         {
-
             StringBuilder str = new StringBuilder();
             str.Append("_____Driver Details_____\n");
             str.Append($"ID:  {DriverId} \n");
@@ -25,6 +24,5 @@ namespace USTVA.Entities
             str.Append("________________________\n");
             return str.ToString();
         }
-
     }
 }

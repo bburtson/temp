@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using USTVA.Entities;
+﻿using USTVA.Entities;
 
 namespace USTVA.ViewModels
 {
@@ -16,5 +12,4 @@ namespace USTVA.ViewModels
 
         public ViolationType? ViolationType { get; set; }
     }
-
 }

@@ -2,22 +2,15 @@
 
 
 (function () {
-
-
     var $sidebarAndWrapper = $("#sidebar,#wrapper");
     var $icon = $("#sidebartoggle i.fa");
 
     function spinIcon(initialT, animationT) {
         animationT = animationT + initialT;
-        setTimeout(function () {
-            $icon.toggleClass('slow-spin');
-
-        }, initialT);
-
+        setTimeout(function () { $icon.toggleClass('slow-spin'); }, initialT);
         setTimeout(function () {
             $icon.toggleClass('slow-spin');
             if ($sidebarAndWrapper.hasClass('hide-sidebar')) {
-
                 $icon.removeClass("fa-arrow-circle-o-left");
                 $icon.addClass("fa-arrow-circle-o-right");
             } else {
@@ -34,12 +27,9 @@
     });
 
     $('#you-are-here').on('mousedown', /** @param {!jQuery.Event} event */
-        function (event) {
-            event.preventDefault();
-        });
+        function (event) { event.preventDefault(); });
 
-    if ($(window).width() > 650 &&
-        $("#crumb span").text() === "Home") {
+    if ($(window).width() > 650 && $("#crumb span").text() === "Home") {
         setTimeout(function () {
             $sidebarAndWrapper.toggleClass('hide-sidebar');
             spinIcon(150, 475);

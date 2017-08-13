@@ -31,27 +31,27 @@ namespace USTVA.Controllers.Web
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Index()
         {
-            const string domainIp = "24.31.248.61";
+            //const string domainIp = "24.31.248.61";
 
-            var requestIp = Request.HttpContext.Connection.RemoteIpAddress.ToString();
-            try
-            {
-                if (domainIp != requestIp)
-                {
-                    var requestData = Request.Headers.Keys.Select(k => $"{k} : {Request.Headers[k]}<br />")
-                        .Aggregate((c, next) => c + next);
+            //var requestIp = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            //try
+            //{
+            //    if (domainIp != requestIp)
+            //    {
+            //        var requestData = Request.Headers.Keys.Select(k => $"{k} : {Request.Headers[k]}<br />")
+            //            .Aggregate((c, next) => c + next);
 
-                    var htmlDetails = string.Concat(requestData, $"User Ip: {requestIp}");
+            //        var htmlDetails = string.Concat(requestData, $"User Ip: {requestIp}");
 
-                    await _adminAlert.SendEmailAsync("LogAdmin", "bprequestlog@gmail.com", "Incoming Request",
-                        htmlDetails).ConfigureAwait(false);
+            //        await _adminAlert.SendEmailAsync("LogAdmin", "bprequestlog@gmail.com", "Incoming Request",
+            //            htmlDetails).ConfigureAwait(false);
 
-                }
-            }
-            catch (UnauthorizedAccessException e)
-            {
-                _logger.LogError("Email: Failure", e.Message);
-            }
+            //    }
+            //}
+            //catch (UnauthorizedAccessException e)
+            //{
+            //    _logger.LogError("Email: Failure", e.Message);
+            //}
 
 
             return View();

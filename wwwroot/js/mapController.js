@@ -25,34 +25,23 @@
 
         function setMap(year) {
             appAnimations.toggleMapLoaded();
-           
-
             incidentApiService.latLngByYear(year)
                 .then(onLocations)
-                .finally(function () {
-                    buildMap();
-                });
-
-
+                .finally(function () { buildMap(); });
         }
 
         var setMapLocations = function (filterParameters) {
             appAnimations.toggleMapLoaded();
             appAnimations.toggleFiltersSelected();
-
             incidentApiService.latLngByFilter(filterParameters)
-                .then(onLocations).finally(function () {
-
-                    buildMap();
-                });
-
+                .then(onLocations)
+                .finally(function () { buildMap(); });
         }
 
         function onLocations(locations) {
             locationData = locations;
             appAnimations.toggleMapLoaded();
         }
-
 
         function buildMap() {
             clearAllMapData();
@@ -77,8 +66,6 @@
                 });
                 markers.push(marker);
             });
-            // appAnimations.toggleMapLoaded();
-
         }
 
         function clearAllMapData() {
@@ -87,16 +74,9 @@
             markers = [];
         }
 
-
-
         function toGmapLatLng(acc, cur) {
             acc.push(new google.maps.LatLng(cur.lat, cur.lng));
             return acc;
-        }
-
-
-        function showHeatMap(locations) {
-
         }
 
         function showIncidentDataWindow(id) {
@@ -104,61 +84,84 @@
         }
 
         function onDetails(incident) {
+            var contentString =
+                `<div id="content">
+                    <div id= "siteNotice"></div>
+                    <h2 id="firstHeading" class="firstHeading"> Incident # ${incident.incidentId.toString()} </h2>
+                    <div id="bodyContent">
+                        <b>Date & Time: </b> ${incident.dateTime} <br />
+                        <b>Alcohol Involved: </b> ${incident.alcohol} <br />
+                        <b>Fatal: </b> ${incident.fatal} <br />
+                        <b>Seatbets Worn: </b> ${incident.seatBelts} <br />
+                        <b>Description: </b> ${incident.description} <br />
+                        <div>
+                            <h4>Driver Information<h4>
+                        </div>
+                        <b>Race: </b> ${incident.driver.race} <br /> 
+                        <b>Gender: </b> ${incident.driver.gender} <br />
+                        <b>Licenese City, State: </b> ${incident.driver.city},  ${incident.driver.state} <br />
+                        <div>
+                            <h4>Vehicle Information<h4>
+                        </div>
+                        <b>Make: </b> ${incident.vehicle.make} <br />
+                        <b>Model: </b>${incident.vehicle.model} <br />
+                        <b>Color: </b> ${incident.vehicle.color} <br />
+                    </div>
+                </div>
+            </div>`;
 
-            var contentString = '<div id="content">' +
-                '<div id="siteNotice">' +
-                '</div>' +
-                '<h2 id="firstHeading" class="firstHeading"> Incident #' + incident.incidentId.toString() + '</h2>' +
-                '<div id="bodyContent">' +
 
-                '<b>Date & Time: </b>' +
-                incident.dateTime + '<br />' +
-                '<b>Alcohol Involved: </b>' +
-                incident.alcohol + '<br />' +
-                '<b>Fatal: </b>' +
-                incident.fatal + '<br />' +
 
-                '<b>Seatbets Worn: </b>' +
-                incident.seatBelts + '<br />' +
+            //var contentString = '<div id="content">' +
+            //    '<div id="siteNotice">' +
+            //    '</div>' +
+            //    '<h2 id="firstHeading" class="firstHeading"> Incident #' + incident.incidentId.toString() + '</h2>' +
+            //    '<div id="bodyContent">' +
 
-                '<b>Description: </b>' +
-                incident.description + '<br />' +
+            //    '<b>Date & Time: </b>' +
+            //    incident.dateTime + '<br />' +
+            //    '<b>Alcohol Involved: </b>' +
+            //    incident.alcohol + '<br />' +
+            //    '<b>Fatal: </b>' +
+            //    incident.fatal + '<br />' +
 
-                '<div><h4>Driver Information<h4></div>' +
+            //    '<b>Seatbets Worn: </b>' +
+            //    incident.seatBelts + '<br />' +
 
-                '<b>Race: </b>' +
-                incident.driver.race + '<br />' +
+            //    '<b>Description: </b>' +
+            //    incident.description + '<br />' +
 
-                '<b>Gender: </b>' +
-                incident.driver.gender + '<br />' +
+            //    '<div><h4>Driver Information<h4></div>' +
 
-                '<b>Licenese City, State: </b>' +
-                incident.driver.city + ', ' + incident.driver.state + '<br />' +
+            //    '<b>Race: </b>' +
+            //    incident.driver.race + '<br />' +
 
-                '<div><h4>Vehicle Information<h4></div>' +
+            //    '<b>Gender: </b>' +
+            //    incident.driver.gender + '<br />' +
 
-                '<b>Make: </b>' +
-                incident.vehicle.make + '<br />' +
+            //    '<b>Licenese City, State: </b>' +
+            //    incident.driver.city + ', ' + incident.driver.state + '<br />' +
 
-                '<b>Model: </b>' +
-                incident.vehicle.model + '<br />' +
+            //    '<div><h4>Vehicle Information<h4></div>' +
 
-                '<b>Color: </b>' +
-                incident.vehicle.color + '<br />' +
+            //    '<b>Make: </b>' +
+            //    incident.vehicle.make + '<br />' +
 
-                '</div>' +
-                '</div>' +
-                '</div>';
+            //    '<b>Model: </b>' +
+            //    incident.vehicle.model + '<br />' +
 
-            var infoWindow = new google.maps.InfoWindow({
-                content: contentString
+            //    '<b>Color: </b>' +
+            //    incident.vehicle.color + '<br />' +
 
-            });
+            //    '</div>' +
+            //    '</div>' +
+            //    '</div>';
+
+            var infoWindow = new google.maps.InfoWindow({ content: contentString });
             var marker = {};
             for (var i = 0; i < markers.length; i++) {
                 if (markers[i].title == incident.incidentId) marker = markers[i];
             }
-
             infoWindow.open($rootScope.map, marker);
         }
 

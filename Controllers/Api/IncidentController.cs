@@ -4,7 +4,6 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using USTVA.Entities;
 using USTVA.Services;
 using USTVA.ViewModels;
 
@@ -16,7 +15,7 @@ namespace USTVA.Controllers.Api
         private readonly IIncidentData _incidents;
         private ILogger<IncidentController> _logger;
 
-        public IncidentController(IIncidentData incidents, 
+        public IncidentController(IIncidentData incidents,
                                   ILogger<IncidentController> logger)
         {
             _logger = logger;
@@ -37,8 +36,6 @@ namespace USTVA.Controllers.Api
             return id == 0 ? Ok("specify ID:  /api/incident/12") : Ok(result);
         }
 
-        
- 
         [HttpPost("filter")]
         public async Task<IActionResult> LatLngFiltered([FromBody] FilterParams filterParams)
         {
@@ -53,27 +50,27 @@ namespace USTVA.Controllers.Api
         }
 
 
-    [HttpGet("latlng/{year=2017}")]
-    public async Task<IActionResult> LatLng(int year)
-    {
-        try
+        [HttpGet("latlng/{year=2017}")]
+        public async Task<IActionResult> LatLng(int year)
         {
-            var result = await _incidents.GetByYearAsync(year).ConfigureAwait(false);
-                return Ok(result.Select(i => new IncidentLocationViewModel
+            try
             {
-                Id = i.IncidentId,
-                Lat = i.Latitude,
-                Lng = i.Longitude
-            }));
-        }
-        catch (Exception e)
-        {
+                var query = await _incidents.GetByYearAsync(year).ConfigureAwait(false);
+                var geoLocations = query.Select(i => new IncidentLocationViewModel
+                {
+                    Id = i.IncidentId,
+                    Lat = i.Latitude,
+                    Lng = i.Longitude
+                }).ToArray();
+
+                return Ok(geoLocations);
+            }
+            catch (Exception e)
+            {
                 _logger.LogError("LatLng GET ERROR: " + e.Message, e.StackTrace);
-            Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return Json(e.Message);
-
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return new ObjectResult(e.Message);
+            }
         }
-
     }
-}
 }

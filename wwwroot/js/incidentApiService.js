@@ -12,6 +12,7 @@
                     $rootScope.errorMessage = "ERR" + error.data;
                 });
         };
+        // *reminder for later version of me -> consider filtering in memory rather than hitting api
         var latLngByFilter = function (filterParams) {
             return $http.post("/api/incident/filter", filterParams)
                 .then(function (response) {

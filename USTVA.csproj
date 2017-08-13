@@ -35,9 +35,7 @@
 
   <ItemGroup>
     <Content Include="Extenstions\String\StringExtensions.cs" />
-    <Content Include="Tools\Parsers\CsvParser.cs" />
-    <Content Include="wwwroot\css\map\site.css" />
-    <Content Include="wwwroot\css\map\site.min.css" />
+    <Content Include="wwwroot\favicon.ico" />
     <Content Include="wwwroot\css\map\tva.css" />
     <Content Include="wwwroot\css\site.css" />
     <Content Include="wwwroot\css\site.min.css" />

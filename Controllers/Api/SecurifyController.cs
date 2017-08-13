@@ -6,6 +6,8 @@ using USTVA.Controllers.FilterAttributes;
 
 namespace USTVA.Controllers.Api
 {
+    // I created this controller with the intent to privately use public APIS on codepen and also use my personal webserver
+    // to send those api results over an SSL encrypted protocol.. which also allows ease of use for secured sites like codepen
     [Route("[controller]/[action]")]
     public class SecurifyController : Controller
     {
@@ -21,8 +23,7 @@ namespace USTVA.Controllers.Api
         public async Task<IActionResult> Weather(string units, float lat, float lon)
         {
             string jsonResult;
-
-            //QueryString Contains API KEY
+            // config json contains sensitive data
             var baseUrl = _config.GetSection("ExternalResourceUrls")["OpenWeatherMap"];
 
             var url = $"{baseUrl}&units={units}&lat={lat}&lon={lon}";

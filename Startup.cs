@@ -10,7 +10,6 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Net;
 using USTVA.Entities;
-using USTVA.Middleware;
 using USTVA.Middleware.UrlRewriting;
 using USTVA.Services;
 using USTVA.ViewModels;
@@ -78,7 +77,6 @@ namespace USTVA
 
             if (env.IsDevelopment())
             {
-              //  loggerFactory.AddDebug(LogLevel.Information);
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
             }

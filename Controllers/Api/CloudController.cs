@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 
 namespace USTVA.Controllers.Api
 {
+     // For reading viewing and downloading simple public files on my server
+     // a quick place to throw things "Junk Drawer"
     [Route("[controller]/[action]")]
     public class CloudController : Controller
     {
@@ -22,7 +24,7 @@ namespace USTVA.Controllers.Api
             var fileEntries = await Task.Run(() =>
             {
                 return Directory.GetFiles(_contentPath)
-                    .Select(s => s.Substring(s.LastIndexOf('\\') + 1));
+                                .Select(s => s.Substring(s.LastIndexOf('\\') + 1));
 
             }).ConfigureAwait(false);
 

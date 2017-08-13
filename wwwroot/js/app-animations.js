@@ -2,7 +2,6 @@
     "use strict";
     var appAnimations = function ($timeout, cfpLoadingBar) {
 
-
         var $progressBar = $("#map-progress");
         var $map = $("#map");
         var $mapMenuToggle = $("#map-menu-toggle");
@@ -49,8 +48,6 @@
             toggleMapTypeSelection: toggleMapTypeSelection
         };
     };
-
-
 
     var module = angular.module("app-violations");
 

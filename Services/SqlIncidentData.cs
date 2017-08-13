@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using USTVA.Entities;
@@ -20,11 +18,8 @@ namespace USTVA.Services
             _context = context;
         }
 
- 
         public IQueryable<Incident> GetAll()
         {
-
-
             _context.Incidents.Include(x => x.Driver);
             return _context.Incidents.AsQueryable();
         }

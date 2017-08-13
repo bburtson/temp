@@ -1,7 +1,4 @@
-﻿
-
-
-<div id="mapwrapper" class="col-md-offset-2 col-md-8">
+﻿<div id="mapwrapper" class="col-md-offset-2 col-md-8">
     <div class="panel panel-info">
         <div class="panel-heading">
             <div class="row">
@@ -28,36 +25,33 @@
         </div>
 
         <div id="map-panel" class="panel-body">
-
             <div id="map-menu-toolbar" class="bg-primary">
-                <a id="map-menu-toggle" class="btn btn-primary">Filter Options <i class="fa fa-angle-down fa-lg"></i></a>
+                <a id="map-menu-toggle" class="btn btn-primary">Filter Options 
+                    <i class="fa fa-angle-down fa-lg"></i>
+                </a>
                 <a id="heatmap-toggle" ng-click="vm.selectMapType('heat')" class="btn btn-info pull-right">
                     <i class="fa fa-fire"></i>
                 </a>
                 <a id="markermap-toggle" ng-click="vm.selectMapType('marker')" class="btn btn-default pull-right">
                     <i class="fa fa-map-marker"></i>
                 </a>
-           
             </div>
+
             <div class="col-xs-12">
                 <div id="map-menu" class="bg-info">
-                    <div class="map-menu-content bg-info text-primary">
-                        <br />
+                    <div class="map-menu-content bg-info text-primary"> <br />
                         <div class="col-xs-12">
                             <label class="fa-lg">Alcohol Involved</label>
                             <drop-down-component value="vm.selectedAlcohol"
                                                  option-data="vm.alcoholOptions"
                                                  action="vm.selectAlcohol">
-
                             </drop-down-component>
                         </div>
-
                         <div class="col-xs-12">
                             <label class="fa-lg">Fatality</label>
                             <drop-down-component value="vm.selectedFatality"
                                                  option-data="vm.fatalityOptions"
                                                  action="vm.selectFatality">
-
                             </drop-down-component>
                         </div>
                         <div class="col-xs-12">
@@ -65,7 +59,6 @@
                             <drop-down-component value="vm.selectedRace"
                                                  option-data="vm.raceOptions"
                                                  action="vm.selectRace">
-
                             </drop-down-component>
                         </div>
                         <div class="col-xs-12">
@@ -83,10 +76,9 @@
                             </drop-down-component>
                         </div>
                         <div>
-                            <div class="col-xs-12">
-                                <br />
-                                <br />
-                                <button ng-click="vm.submitFilters()" class="btn btn-success btn-block">Show Points </button>
+                            <div class="col-xs-12"><br /><br />
+                                <button ng-click="vm.submitFilters()" 
+                                        class="btn btn-success btn-block">Show Points </button>
                             </div>
                         </div>
                     </div>
@@ -95,12 +87,11 @@
         </div>
 
         <div id="map" class="loaded"></div>
-
         <div id="map-progress" class="loaded">
             <div class="text-center text-muted">
                 <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
                     <h4 class="text-muted"> Curious?</h4>
-                    <p>Each year has approximately 150,000 geoloactions that makup these heatmaps! Thanks for being patient. </p>
+                    <p>Each year has approximately 150,000 geolocations that makup these heatmaps! Thanks for being patient. </p>
                     <br />
                     <div id="loading-bar-container" class="progress">
                         <div class="bar"></div>
@@ -111,7 +102,7 @@
     </div>
 </div>
 <div class="text-danger">
-    {{ errorMessage }} {{locationsCount}}
+    <p> {{ errorMessage }} <span ng-show="errorMessage"> : There was a problem fetching location please refresh **This is typically occurs because of the following: 1) Your connection is mobile or limited or not connected,  2) Your browser settings 3) Out-dated browsers</span></p>
 </div>
 
 
