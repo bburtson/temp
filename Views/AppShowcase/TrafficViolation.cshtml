@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Traffic Violation";
+
+}
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div class="page-header">
+        <h1>@ViewBag.Title</h1>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div id="description-content" class="well">
+                    <h2>Primary Technologies</h2>
+                    <br />
+                    <ul class="list-unstyled">
+                        <li>.NET Core</li>
+                        <li>SQL Server 2016</li>
+                        <li>EF Core/MVC 6</li>
+                        <li>Angular JS</li>
+                        <li>Google Maps JS API</li>
+                    </ul>
+                    <br />
+                    <h2>Description</h2>
+
+                    <p>
+                        A rewarding project fueled by curiousity, and an urge to work with large datasets. It exposed a number of challenges in the context of
+                        organizing shaping data for easy use as well as re-use. I had a great time testing/debugging and optimizing linq queries against large data-sets.
+                        One of the main project challenges is delivering a large dataset of geoloactions to the client side angular JS in a resonable amount of time. The load times
+                        are satisfactory for a pc or upscale mobile device running wifi. But the ultimate goal is to optimize to a point to deliver acceptable load times
+                        for a low-ping 3g connection.
+                        <br />
+                        <br />
+                        <div class="container-fluid">
+                            <div class="row">
+                                <a asp-controller="TrafficViolationApp" asp-action="Index"><h4 class="col-lg-12">Demo Traffic Violations Project</h4></a>
+                                <br />
+               
+                                <a asp-controller="TrafficViolationApp" asp-action="Index">
+                                    <img class="img-responsive col-lg-12" src="https://www.burtson.com/cloud/junkdrawer/tva_snapshot.png" alt="Traffic Violation heatmap"/>
+                                </a>
+                            </div>
+                        </div>
+                        <br />
+                        <span class="text-muted">
+                            **This application is still in development and is only in a state to be tinkered with. Most errors if you exprience any are "polish/design related", if you do however
+                            encounter an error please feel free to <a asp-controller="Home" asp-action="Contact">contact me</a> with a description of the bug, feedback of any sort is also appreciated, Regards.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

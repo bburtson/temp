@@ -1,0 +1,128 @@
+﻿
+
+
+<div id="mapwrapper" class="col-md-offset-2 col-md-8">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="nav nav-pills">
+                        <li class="col-xs-7">
+                            <div class="row">
+                                <h4 id="map-panel-title" class="panel-title">Incident Map</h4>
+                            </div>
+                        </li>
+                        <li class="dropdown col-xs-3 col-md-2 col-xs-offset-2 pull-right">
+                            <a class="btn btn-primary dropdown-toggle row" data-toggle="dropdown" aria-expanded="false">
+                                {{vm.selectedYear}} &nbsp; <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li ng-class="{active: yearOpt === vm.selectedYear}" ng-repeat="yearOpt in vm.yearOptions">
+                                    <a href="" ng-click="vm.selectYear(yearOpt)">{{yearOpt}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="map-panel" class="panel-body">
+
+            <div id="map-menu-toolbar" class="bg-primary">
+                <a id="map-menu-toggle" class="btn btn-primary">Filter Options <i class="fa fa-angle-down fa-lg"></i></a>
+                <a id="heatmap-toggle" ng-click="vm.selectMapType('heat')" class="btn btn-info pull-right">
+                    <i class="fa fa-fire"></i>
+                </a>
+                <a id="markermap-toggle" ng-click="vm.selectMapType('marker')" class="btn btn-default pull-right">
+                    <i class="fa fa-map-marker"></i>
+                </a>
+           
+            </div>
+            <div class="col-xs-12">
+                <div id="map-menu" class="bg-info">
+                    <div class="map-menu-content bg-info text-primary">
+                        <br />
+                        <div class="col-xs-12">
+                            <label class="fa-lg">Alcohol Involved</label>
+                            <drop-down-component value="vm.selectedAlcohol"
+                                                 option-data="vm.alcoholOptions"
+                                                 action="vm.selectAlcohol">
+
+                            </drop-down-component>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <label class="fa-lg">Fatality</label>
+                            <drop-down-component value="vm.selectedFatality"
+                                                 option-data="vm.fatalityOptions"
+                                                 action="vm.selectFatality">
+
+                            </drop-down-component>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="fa-lg">Race</label>
+                            <drop-down-component value="vm.selectedRace"
+                                                 option-data="vm.raceOptions"
+                                                 action="vm.selectRace">
+
+                            </drop-down-component>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="fa-lg">Gender</label>
+                            <drop-down-component value="vm.selectedGender"
+                                                 option-data="vm.genderOptions"
+                                                 action="vm.selectGender">
+                            </drop-down-component>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="fa-lg">Violation Type</label>
+                            <drop-down-component value="vm.selectedViolationType"
+                                                 option-data="vm.violationTypeOptions"
+                                                 action="vm.selectViolationType">
+                            </drop-down-component>
+                        </div>
+                        <div>
+                            <div class="col-xs-12">
+                                <br />
+                                <br />
+                                <button ng-click="vm.submitFilters()" class="btn btn-success btn-block">Show Points </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map" class="loaded"></div>
+
+        <div id="map-progress" class="loaded">
+            <div class="text-center text-muted">
+                <div class="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+                    <h4 class="text-muted"> Curious?</h4>
+                    <p>Each year has approximately 150,000 geoloactions that makup these heatmaps! Thanks for being patient. </p>
+                    <br />
+                    <div id="loading-bar-container" class="progress">
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-danger">
+    {{ errorMessage }} {{locationsCount}}
+</div>
+
+
+<div class="col-xs-12 text-center">
+    <br />
+    <div class="col-xs-offset-1 col-xs-10">
+        <span>* Clicking on a map marker will yield detailed information about that particular incident</span><br/>
+        <span>Additionally, I do not recommend toggling map markers if you have not selected any filters. If you are on a lacluster device it could impact your experience</span>
+    </div>
+</div>
+<!--Temp for Scroll-->
+<div style="padding-bottom: 150px;"><br /></div>
+
+

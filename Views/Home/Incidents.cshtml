@@ -1,0 +1,48 @@
+﻿@model IEnumerable<USTVA.Entities.Incident>
+
+@{
+    ViewBag.Title = "Incidents";
+}
+
+<div>
+
+    <h1>Incidents View</h1>
+    <h3>Showing @Model.Count() results</h3>
+    <br />
+</div>
+@foreach (var incident in Model)
+{
+    <div>
+        Incident # @incident.IncidentId
+        <br />
+        ______________________________________________<br />
+
+        Date:
+        @incident.DateTime
+        <br />
+        Alcohol Involved:
+        @incident.Alcohol
+        <br />
+        Seatbelt Violation:
+
+        @incident.SeatBelts
+        <br />
+        Fatality: @incident.Fatal
+        <br />
+        @*Violation/Ticket: @incident.Violation.ViolationType
+        <br />*@
+
+
+        Driver Details<br />
+
+        License Type: @*@incident.Driver.CommercialLicense<br />*@
+        Ethnicity: @*@incident.Driver.Race<br />*@
+        Gender: @*@incident.Driver.Gender<br />*@
+        City / State: @*@incident.Driver.City, @incident.Driver.State<br />*@
+
+        <b>Description</b><br />
+
+        @incident.Description<br />
+        ______________________________________________
+    </div>
+}
