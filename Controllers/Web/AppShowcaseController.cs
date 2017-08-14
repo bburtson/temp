@@ -9,6 +9,11 @@ namespace USTVA.Controllers.Web
             return View();
         }
 
+        public IActionResult MicroApps()
+        {
+            return View();
+        }
+
         public IActionResult TrafficViolation()
         {
             ViewData["Heading"] = "Data Visualization";

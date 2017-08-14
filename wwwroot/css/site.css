@@ -44,14 +44,14 @@ body {
     transition: ease .30s;
 }
 
-#sidebar.hide-sidebar {
-    left: -250px;
+    #sidebar.hide-sidebar {
+        left: -250px;
         position: absolute;
-    -ms-transition: ease .30s;
-    -o-transition: ease .30s;
-    -webkit-transition: ease .30s;
-    transition: ease .30s;
-}
+        -ms-transition: ease .30s;
+        -o-transition: ease .30s;
+        -webkit-transition: ease .30s;
+        transition: ease .30s;
+    }
 
 #sidebar {
     font-size: medium;
@@ -78,9 +78,9 @@ body {
     position: fixed;
 }
 
-#topbar a.active {
-    background-color: #5e5e5e;
-}
+    #topbar a.active {
+        background-color: #5e5e5e;
+    }
 
 #main {
     padding: 16px;
@@ -111,7 +111,7 @@ body {
     width: 100%;
 }
 
-.container > .navbar-header, .container-fluid > .navbar-header, 
+.container > .navbar-header, .container-fluid > .navbar-header,
 .container > .navbar-collapse, .container-fluid > .navbar-collapse {
     margin-right: 0;
 }
@@ -139,7 +139,8 @@ body {
     line-height: 21px;
     margin: 0px;
 }
-li.navbar-btn{
+
+li.navbar-btn {
     margin: 0px;
 }
 
@@ -170,7 +171,11 @@ li.navbar-btn{
     width: 100%;
     height: 800px;
 }
+
 p {
+    line-height: 30px;
+}
+span {
     line-height: 30px;
 }
 .tab {
@@ -182,5 +187,6 @@ p {
     padding-right: 30px;
 }
 
-
-
+#app-list a{
+    font-weight: 700;
+}

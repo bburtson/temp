@@ -39,6 +39,15 @@
     <Content Include="wwwroot\css\map\tva.css" />
     <Content Include="wwwroot\css\site.css" />
     <Content Include="wwwroot\css\site.min.css" />
+    <Content Include="wwwroot\images\calulator-app.PNG" />
+    <Content Include="wwwroot\images\memory-app.PNG" />
+    <Content Include="wwwroot\images\pomodoro-app.PNG" />
+    <Content Include="wwwroot\images\quote-app.PNG" />
+    <Content Include="wwwroot\images\tictactoe-app.PNG" />
+    <Content Include="wwwroot\images\tribute-page.PNG" />
+    <Content Include="wwwroot\images\twitch-app.PNG" />
+    <Content Include="wwwroot\images\weather-app.PNG" />
+    <Content Include="wwwroot\images\wikipedia-app.PNG" />
     <Content Include="wwwroot\js\app-animations.js" />
     <Content Include="wwwroot\js\app-violations.js" />
     <Content Include="wwwroot\js\incidentApiService.js" />

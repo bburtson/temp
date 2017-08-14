@@ -2,6 +2,7 @@
 
 
 (function () {
+
     var $sidebarAndWrapper = $("#sidebar,#wrapper");
     var $icon = $("#sidebartoggle i.fa");
 
@@ -36,7 +37,20 @@
         }, 300);
     }
 
-
+    var scrollItems = ['tic-tac-toe', 'memory']
+    for (let element of scrollItems) {
+        $('#scroll-to-' + element).click(function () {
+            $('html, body').animate({
+                scrollTop: $('#' + element).offset().top - 30
+            }, 2000);
+        });
+    }
     
 
 })();
+
+
+
+
+
+
