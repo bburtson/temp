@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Micro Apps";
+}
+<div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="page-header">
+            <h1>Micro Apps</h1>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <h3>Contents</h3>
+                                <div id="app-list" class="list-group">
+                                    <a id="scroll-to-memory" class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Memory (Game)</span>
+                                    </a>
+                                    <a id="scroll-to-tic-tac-toe"  class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Tic Tac Toe (Game)</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Calculator</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Twitch.tv Status Viewer</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Pomodoro Clock</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Local Weather</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Wikipedia Search</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Random Quote Generator</span>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <span class="text-primary">Tribute Page</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 hidden-md hidden-lg">
+                                <hr />
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Description</h3>
+                                <p>
+                                    These apps were made as assignments for free code camps front end certification,
+                                    when I started free code camps courses/challenges, I already had experience coding in js/cs,
+                                    so you will find that I chose to work with Angular (1.x and 2).
+                                    These projects were challenging but from a design aspect, they weren't so complex that they called for a framework solution
+                                    like angular. So in order to improve my skills I decided familiarize myself with the framework,
+                                    as well as improve on SOLID principles/writing maintanable code.
+                                    Enjoy!
+                                </p>
+                            </div>
+                        </div>
+                        <div id="memory" class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-12 bg-info">
+                                    <h3>Memory Game</h3>
+                                    <hr /><br />
+                                    <strong>User stories</strong>
+                                    <br /><br />
+                                    <ul>
+                                        <li>
+                                            <p>I am presented with a random series of button presses.</p>
+                                        </li>
+                                        <li>
+                                            <p>Each time I input a series of button presses correctly, I see the same series of button presses but with an additional step.</p>
+                                        </li>
+                                        <li>
+                                            <p>I hear a sound that corresponds to each button both when the series of button presses plays, and when I personally press a button.</p>
+                                        </li>
+                                        <li>
+                                            <p>If I press the wrong button, I am notified that I have done so, and that series of button presses starts again to remind me of the pattern so I can try again.</p>
+                                        </li>
+                                        <li>
+                                            <p>I can see how many steps are in the current series of button presses.</p>
+                                        </li>
+                                        <li>
+                                            <p>If I want to restart, I can hit a button to do so, and the game will return to a single step.</p>
+                                        </li>
+                                        <li>
+                                            <p>I can play in strict mode where if I get a button press wrong, it notifies me that I have done so, and the game restarts at a new random series of button presses.</p>
+                                        </li>
+                                        <li>
+                                            <p>I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.</p>
+                                        </li>
+                                    </ul>
+                                    <br /><br />
+                                    <div class="col-xs-12">
+                                        <a target="_blank" href="http://memory.burtson.com">
+                                            <img class="thumbnail col-xs-6" src="~/images/memory-app.png" />
+                                        </a>
+                                        <div class=" col-xs-offset-1 col-xs-5">
+                                            <div class="row">
+                                                <a class="btn btn-primary btn-large col-xs-12" target="_blank" href="http://memory.burtson.com">Demo App</a>
+                                                <br /><br /><br />
+                                                <a class="btn btn-primary btn-large col-xs-12" target="_blank" href="https://github.com/bburtson/memory-game">View Code</a>
+                                                <br /><hr />
+                                                <p class="lead">
+                                                    <b>Technologies: </b> <br />
+                                                    Angular CLI, Angular 2, Visual Studio Code, Node.js
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br /><br /><br /><br />
+                        <div id="tic-tac-toe" class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-12 bg-info">
+                                    <h3>Tic-Tac-Toe</h3>
+                                    <hr /><br />
+                                    <strong>User stories</strong>
+                                    <br /><br />
+                                    <ul>
+                                        <li>
+                                            <p>I can play a game of Tic Tac Toe with the computer.</p>
+                                        </li>
+                                        <li>
+                                            <p>My game will reset as soon as it's over so I can play again.</p>
+                                        </li>
+                                        <li>
+                                            <p>I can choose whether I want to play as X or O.</p>
+                                        </li>
+                                    </ul>
+                                    <br /><br />
+                                    <div class="col-xs-12">
+                                        <a target="_blank" href="http://tictactoe.burtson.com">
+                                            <img class="thumbnail col-xs-6" src="~/images/tictactoe-app.png" />
+                                        </a>
+                                        <div class=" col-xs-offset-1 col-xs-5">
+                                            <div class="row">
+                                                <a class="btn btn-primary btn-large col-xs-12" target="_blank" href="http://tictactoe.burtson.com">Demo App</a>
+                                                <br /><br /><br />
+                                                <a class="btn btn-primary btn-large col-xs-12" target="_blank" href="https://github.com/bburtson/tic-tac-toe">View Code</a>
+                                                <hr /><br />
+                                                <p class="lead">
+                                                    <b>Technologies: </b> <br />
+                                                    Angular CLI, Angular 2, Visual Studio Code, Node.js
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
