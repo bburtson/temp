@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using System;
@@ -37,9 +38,17 @@ namespace USTVA
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddSingleton<ILocalDataProvider<AppDetailsViewModel>>(config =>
+            {
+                return new JsonDataProvider<AppDetailsViewModel>()
+                    .AddSource("MicroApps", "wwwroot/micro-app-details.json")
+                    .AddSource("PersonalProjects", "wwwroot/project-details.json");
+            });
+
             services.AddSingleton<AdminAlert>();
 
             services.AddLogging();
+
             services.AddMvc().AddJsonOptions(config =>
             {
                 config.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
@@ -56,7 +65,6 @@ namespace USTVA
 
             Mapper.Initialize(config =>
                 config.CreateMap<Incident, IncidentLocationViewModel>().ReverseMap());
-
 
             services.AddDbContext<IncidentDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("MainPCDB")));
@@ -85,11 +93,10 @@ namespace USTVA
                 app.UseRewriter(new RewriteOptions()
                     .Add(new RedirectWwwRule())
                     .AddRedirectToHttps()
-                    .AddRedirect(@"^section1/(.*)", "new/$1", (int) HttpStatusCode.Redirect)
-                    .AddRedirect(@"^section/(\\d+)/(.*)", "new/$1/$2", (int) HttpStatusCode.MovedPermanently)
+                    .AddRedirect(@"^section1/(.*)", "new/$1", (int)HttpStatusCode.Redirect)
+                    .AddRedirect(@"^section/(\\d+)/(.*)", "new/$1/$2", (int)HttpStatusCode.MovedPermanently)
                     .AddRewrite("^feed$", "/?format=rss", skipRemainingRules: false));
 
-                
                 app.UseExceptionHandler("/Home/Error");
             }
 

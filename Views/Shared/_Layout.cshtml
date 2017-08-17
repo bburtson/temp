@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/bootswatch/yeti/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -17,10 +17,12 @@
             <li><a asp-controller="Home" asp-action="Index">Home</a></li>
             <li><a asp-controller="Home" asp-action="About">About</a></li>
             <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
-            <li><h3>Apps</h3></li>
-            <li><a asp-controller="AppShowcase" asp-action="TrafficViolation">Traffic Violation Project</a></li>
-            <li><a asp-controller="AppShowcase" asp-action="WorkoutPlanner">Workout Planner</a></li>
-            <li><a asp-controller="AppShowcase" asp-action="Index">Micro Apps</a></li>
+            <li><a asp-controller="Home" asp-action="FccCertification">FCC Certification</a></li>
+            <li><h3>Applications</h3></li>
+            <li><a asp-controller="Apps" asp-action="PersonalProjects">Personal Projects</a></li>
+            <li><a asp-controller="Apps" asp-action="MicroApps">Micro Applications</a></li>
+            <li><a asp-controller="Apps" asp-action="PublicProjects">Projects For Others</a></li>
+            
         </ul>
     </div>
     <div id="wrapper" class="hide-sidebar">

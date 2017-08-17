@@ -31,29 +31,6 @@ namespace USTVA.Controllers.Web
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Index()
         {
-            //const string domainIp = "24.31.248.61";
-
-            //var requestIp = Request.HttpContext.Connection.RemoteIpAddress.ToString();
-            //try
-            //{
-            //    if (domainIp != requestIp)
-            //    {
-            //        var requestData = Request.Headers.Keys.Select(k => $"{k} : {Request.Headers[k]}<br />")
-            //            .Aggregate((c, next) => c + next);
-
-            //        var htmlDetails = string.Concat(requestData, $"User Ip: {requestIp}");
-
-            //        await _adminAlert.SendEmailAsync("LogAdmin", "bprequestlog@gmail.com", "Incoming Request",
-            //            htmlDetails).ConfigureAwait(false);
-
-            //    }
-            //}
-            //catch (UnauthorizedAccessException e)
-            //{
-            //    _logger.LogError("Email: Failure", e.Message);
-            //}
-
-
             return View();
         }
 
@@ -77,13 +54,8 @@ namespace USTVA.Controllers.Web
         {
             var data = _incidentData.GetAll();
             var model = data.Where(p => p.DateTime.Year == 2015)
-                            .Select((p) => new
-                            {
-                                Str = p.Latitude.ToString() + " " +
-                                                       p.Longitude.ToString()
-                            })
-                            .Select(p => p.Str)
-                            .Distinct();
+                            .Select(p => $"{p.Latitude} {p.Longitude}")
+                            .Distinct().ToArray();
 
             return View(model);
         }
@@ -105,6 +77,7 @@ namespace USTVA.Controllers.Web
         [HttpPost]
         public async Task<IActionResult> Contact(ContactViewModel model)
         {
+            // message from future self: Implement e-mail service this is getting out of hand.
             if (ModelState.IsValid)
             {
                 await _adminAlert.SendEmailAsync("Brett", "brett@burtson.com", "Message From Contact Page",
@@ -113,15 +86,19 @@ namespace USTVA.Controllers.Web
                     $"<b>Message:</b><br /> {model.Message}");
             }
 
-
             return RedirectToAction(nameof(Index));
         }
+        public IActionResult FccCertification()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             var exception = HttpContext.Features.Get<IExceptionHandlerFeature>();
 
-
             _logger.LogError("Error: IExceptionHandlerFeature", exception.Error.Message);
+
             return View();
         }
 

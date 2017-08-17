@@ -39,8 +39,16 @@
     <Content Include="wwwroot\css\map\tva.css" />
     <Content Include="wwwroot\css\site.css" />
     <Content Include="wwwroot\css\site.min.css" />
-    <Content Include="wwwroot\images\calulator-app.PNG" />
+    <Content Include="wwwroot\github_icon.png" />
+    <Content Include="wwwroot\images\calculator-app.PNG" />
+    <Content Include="wwwroot\images\codepen_icon.png" />
+    <Content Include="wwwroot\images\code_pen_button_icon.svg" />
+    <Content Include="wwwroot\images\FCC cert.png" />
+    <Content Include="wwwroot\images\fcc_cert.png" />
+    <Content Include="wwwroot\images\freecodecamp_icon.png" />
+    <Content Include="wwwroot\images\github_icon.png" />
     <Content Include="wwwroot\images\memory-app.PNG" />
+    <Content Include="wwwroot\images\plural_sight_btn_icon.png" />
     <Content Include="wwwroot\images\pomodoro-app.PNG" />
     <Content Include="wwwroot\images\quote-app.PNG" />
     <Content Include="wwwroot\images\tictactoe-app.PNG" />
@@ -99,13 +107,17 @@
     <Content Include="wwwroot\lib\jquery\src\.eslintrc.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+    <Content Include="wwwroot\micro-app-details.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\project-details.json" />
     <Content Include="wwwroot\views\components\dropDownComponent.html" />
     <Content Include="wwwroot\views\components\waitCursor.html" />
-    <Content Include="wwwroot\views\mapView.html" />
     <Content Include="wwwroot\views\mainView.html" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.1.1" />
+    <PackageReference Include="bower" Version="1.3.11" />
     <PackageReference Include="Mailkit" Version="1.16.2" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="1.1.2" />
@@ -129,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Middleware\UrlRewriting\RedirectWwwRule.cs" />
+    <None Include="Services\JsonDataProvider.cs" />
     <None Include="wwwroot\lib\bootstrap\CHANGELOG.md" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css.map" />

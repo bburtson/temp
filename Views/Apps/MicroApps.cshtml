@@ -1,0 +1,102 @@
+﻿@model IEnumerable<AppDetailsViewModel>
+<div class="col-xs-12 col-md-6 col-md-offset-3">
+    <div class="row">
+        <div class="page-header row">
+            <h1>@ViewBag.Title</h1>
+        </div>
+        <div class="well row">
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <h3>Contents</h3>
+                    <div id="app-list" class="list-group">
+                        @foreach (var app in Model)
+                        {
+                            <a href="#" id="scroll-to-@app.ElementId" class="list-group-item list-group-item-action">
+                                <span class="text-primary">@app.Name</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+                <div class="col-xs-12 hidden-md hidden-lg">
+                    <hr />
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <h3>Description</h3>
+                    <p>
+                        These apps were made as assignments for free code camps front end certification,
+                        when I started free code camps courses/challenges, I already had experience coding in js/cs,
+                        so you will find that I chose to work with Angular (1.x and 4).
+                        These projects were challenging but from a design aspect, they weren't so complex that they called for a framework solution
+                        like angular. So in order to improve my skills I decided familiarize myself with the framework,
+                        as well as improve on SOLID principles/writing maintanable code.
+                        Enjoy!
+                    </p>
+                </div>
+
+                @foreach (var app in Model)
+                {
+                    <div class="col-xs-12">
+                        <div class="col-xs-12 bg-info">
+                            <h3 id="@app.ElementId">@app.Name</h3>
+                            <hr /><br />
+                            <h4>User stories</h4>
+                            <br />
+                            <ul style="padding-left:20px;">
+                                @foreach (var story in app.UserStories)
+                                {
+                                    <li style="padding:5px;">@story</li>
+                                }
+                            </ul>
+                            <br /><br />
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-offset-1 col-sm-4 col-sm-push-7">
+                                        <div class="col-xs-5 col-sm-12">
+                                            <div class="row">
+                                                <a class="btn btn-success btn-large col-xs-12" target="_blank" href="@app.AppUrl">
+                                                    <div class="row">
+                                                        <img class="img-responsive white col-xs-8 col-xs-offset-2" src="~/images/runapp_icon.png" />
+                                                        <span class="col-xs-12">Demo App</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 hidden-xs">
+                                            <hr />
+                                        </div>
+                                        <div class="col-xs-5 col-xs-offset-2 col-sm-12 col-sm-offset-0">
+                                            <div class="row">
+                                                <a class="btn btn-primary col-xs-12" target="_blank" href="@app.CodeUrl">
+                                                    <div class="row">
+                                                        <img class="img-responsive inverted col-xs-8 col-xs-offset-2" src="~/images/code_icon.png" />
+                                                        <span class="col-xs-12">View Code</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+                                        <hr />
+                                    </div>
+                                    <div class="col-xs-12 col-sm-7 col-sm-pull-5">
+                                        <a target="_blank" href="@app.AppUrl">
+                                            <img class="img-responsive" src="@app.ImgUrl" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="col-xs-12 text-center">
+                                    <span id="scroll-to-top" class="text-muted">Back To Contents</span>
+                                    <br /><br />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <hr />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

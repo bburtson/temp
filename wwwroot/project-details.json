@@ -1,0 +1,32 @@
+﻿[
+  {
+    "appUrl": "https://www.burtson.com/apps/trafficviolation",
+    "codeUrl": "https://github.com/bburtson/portfolio",
+    "elementId": "traffic",
+    "imgUrl": "https://www.burtson.com/cloud/junkdrawer/tva_snapshot.png",
+    "name": "Traffic Violation",
+    "technologies": [
+      ".NET Core",
+      "SQL Server 2016",
+      "EF Core/MVC 6",
+      "Angular JS",
+      "Google Maps JS API"
+    ],
+    "description": "This was a rewarding project fueled by curiosity, and an urge to work with large data-sets. It exposed a number of challenges in the context of organizing shaping data for easy use as well as re-use. I had a great time testing/debugging and optimizing linq queries against large data-sets. One of the main project challenges was delivering a large data-set of geolocations to the client side application in a reasonable amount of time. The load times are satisfactory for a PC or premium mobile device on a WiFi-connection. But the ultimate goal is to continue optimizations to a point to deliver pleasant load times for a decent 3G mobile connection."
+  },
+  {
+    "appUrl": "http://workout.burtson.com",
+    "codeUrl": "https://github.com/bburtson/workout-planner",
+    "elementId": "workout",
+    "imgUrl": "https://www.burtson.com/cloud/junkdrawer/workout_snapshot.png",
+    "name": "Workout Planner",
+    "technologies": [
+      ".NET Core",
+      "SQL Server 2016",
+      "EF Core/MVC 6",
+      "Identity Framework",
+      "Angular JS"
+    ],
+    "description": "This app was started to solve a problem for my wife.  She requested a workout calendar similar to google calendar but much simpler. The goal was to be able to quickly add her meal/snack plans and eventually implement features be able to store reference data to a workout she was eyeing on a blog.  This was a fun project and gave me the opportunity to work with Identity framework and as always get more time behind the wheel, that is, Angular JS. This app has active subscribers using it right now. I will continue working on these projects again when I have the time."
+  }
+]

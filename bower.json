@@ -2,7 +2,6 @@
   "name": "asp.net",
   "private": true,
   "dependencies": {
-
     "jquery-validation": "1.16.0",
     "jquery-validation-unobtrusive": "3.2.6",
     "font-awesome": "4.7.0",
