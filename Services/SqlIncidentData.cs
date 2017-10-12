@@ -24,6 +24,8 @@ namespace USTVA.Services
             return _context.Incidents.AsQueryable();
         }
 
+
+        // Obsolete this was an old temporary implementation before stored procedures were in place
         public async Task<IQueryable<Incident>> GetByUserFilterParams(FilterParams filterParams)
         {
             return await Task.Run(async() =>
